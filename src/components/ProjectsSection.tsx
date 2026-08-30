@@ -12,13 +12,13 @@ export function ProjectsSection() {
           <p className="section-subtitle mt-1">Things I&apos;ve built</p>
         </div>
 
-        {/* Full-width Stacked Projects Grid */}
-        <div className="flex flex-col gap-8">
+        {/* Bento Grid: 1 Featured Full-Width Card on Top + 2 Side-by-Side Cards Below */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.name}
               project={project}
-              className="w-full"
+              className={index === 0 ? "sm:col-span-2" : "sm:col-span-1"}
               style={{ animationDelay: `${(index + 1) * 100}ms` }}
             />
           ))}

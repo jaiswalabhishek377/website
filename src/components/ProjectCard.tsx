@@ -8,15 +8,15 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, className = "", style }: ProjectCardProps) {
   return (
-    <div className={`project-card ${className}`.trim()} style={style}>
-      {/* Top Preview Section: Natural aspect ratio (no black bars, zero cutoffs) */}
+    <div className={`project-card group ${className}`.trim()} style={style}>
+      {/* Top Preview Section */}
       <div className="relative w-full overflow-hidden border-b border-border/80 bg-[#08080c]">
         {project.image ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={project.image}
             alt={`${project.name} preview`}
-            className="w-full h-auto block transition-transform duration-500 hover:scale-[1.01]"
+            className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]"
           />
         ) : (
           <div className="flex items-center justify-center w-full h-56">

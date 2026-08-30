@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 
 const GITHUB_USERNAME = "jaiswalabhishek377";
 
+// Cache for 1 hour (standard rate-limit safe)
+export const revalidate = 3600;
+
 export async function GET() {
   try {
     const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, {
@@ -9,7 +12,7 @@ export async function GET() {
         Accept: "application/vnd.github.v3+json",
         "User-Agent": "portfolio-website",
       },
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      next: { revalidate: 3600 },
     });
 
     if (!res.ok) {
