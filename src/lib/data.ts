@@ -94,6 +94,8 @@ export const projects: Project[] = [
       "Multi-tenant RAG platform with dual-threshold retrieval pipeline (0.45 relevance target, 0.41 bypass floor) reducing LLM token usage by 62%. Features custom PDF viewer with dynamic AI citation links and multi-model Gemini fallback chain.",
     tags: ["Next.js", "LangChain", "Pinecone", "Firebase", "TypeScript", "Gemini API"],
     codeUrl: "https://github.com/jaiswalabhishek377",
+    liveUrl: "https://second-brain-weld-eta.vercel.app/",
+    image: "/projects/verba.png",
   },
   {
     name: "CodeSync",
@@ -101,6 +103,7 @@ export const projects: Project[] = [
       "Real-time concurrent code collaboration platform with zero-data-loss consistency via CRDTs (Yjs) and Monaco Editor. Features Dockerized sandboxed code execution via Piston API and Prisma RBAC schema.",
     tags: ["React", "Node.js", "WebSockets", "PostgreSQL", "Yjs", "Docker"],
     codeUrl: "https://github.com/jaiswalabhishek377",
+    image: "/projects/codesync.png",
   },
   {
     name: "Relish",
@@ -108,6 +111,8 @@ export const projects: Project[] = [
       "Full-stack food delivery platform with MERN stack, Stripe payment pipeline, JWT authentication, and dedicated Admin dashboard with real-time dynamic inventory & menu updates.",
     tags: ["React 19", "Node.js", "Express", "MongoDB", "Stripe", "JWT"],
     codeUrl: "https://github.com/jaiswalabhishek377",
+    liveUrl: "https://relish-nu.vercel.app/",
+    image: "/projects/relish.png",
   },
 ];
 

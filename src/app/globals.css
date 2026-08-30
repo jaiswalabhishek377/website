@@ -336,7 +336,6 @@ body {
 
 .project-card__image {
   width: 100%;
-  height: 180px;
   background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(99, 102, 241, 0.05));
   display: flex;
   align-items: center;
@@ -346,12 +345,7 @@ body {
   overflow: hidden;
 }
 
-.project-card__image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 15, 0.8));
-}
+
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar {
