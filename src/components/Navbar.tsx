@@ -46,6 +46,14 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="https://drive.google.com/file/d/YOUR_RESUME_ID/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link text-sm"
+          >
+            Resume
+          </a>
         </div>
 
         {/* Mobile: Hamburger menu toggle */}
@@ -94,6 +102,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://drive.google.com/file/d/YOUR_RESUME_ID/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="nav-link text-sm py-1"
+            >
+              Resume
+            </a>
           </div>
         </div>
       )}

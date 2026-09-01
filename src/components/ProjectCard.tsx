@@ -11,7 +11,17 @@ export function ProjectCard({ project, className = "", style }: ProjectCardProps
     <div className={`project-card group ${className}`.trim()} style={style}>
       {/* Top Preview Section */}
       <div className="relative w-full overflow-hidden border-b border-border/80 bg-[#08080c]">
-        {project.image ? (
+        {project.video ? (
+          <video
+            src={project.video}
+            poster={project.image}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto block"
+          />
+        ) : project.image ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={project.image}

@@ -42,7 +42,7 @@ const STEP = CELL_SIZE + CELL_GAP;
 const MONTH_GAP = 10;
 const SVG_HEIGHT = 7 * STEP + 20;
 
-// Pure deterministic helper function to build month-grouped heatmap
+// Pure deterministic helper function to build month-grouped heatmap from last September to current date
 function generateCalendar(
   submissionCalendar?: Record<string, number>,
   fallbackTotal = 2494
@@ -67,6 +67,16 @@ function generateCalendar(
   }
 
   const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth(); // 0-indexed
+
+  // Permanently start from September 2025 (month index 8)
+  const startYear = 2025;
+  const startMonth = 8; // September
+
+  const totalMonths =
+    (currentYear - startYear) * 12 + (currentMonth - startMonth) + 1;
+
   const monthsList: Array<{
     year: number;
     month: number;
@@ -85,9 +95,9 @@ function generateCalendar(
 
   let currentX = 0;
 
-  // 12 months up to current month
-  for (let i = 11; i >= 0; i--) {
-    const d = new Date(today.getFullYear(), today.getMonth() - i, 1);
+  // Iterate from September of previous year through current month
+  for (let i = 0; i < totalMonths; i++) {
+    const d = new Date(startYear, startMonth + i, 1);
     const year = d.getFullYear();
     const month = d.getMonth();
     const monthName = MONTH_NAMES[month];
