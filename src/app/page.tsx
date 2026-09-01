@@ -5,6 +5,7 @@ import GitHubSection from "@/components/GitHubSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import AchievementsSection from "@/components/AchievementsSection";
+import ResumeButton from "@/components/ResumeButton";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <ExperienceSection />
         <ProjectsSection />
         <AchievementsSection />
+        <ResumeButton />
       </main>
       <Footer />
     </>

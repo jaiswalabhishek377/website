@@ -85,17 +85,19 @@ export interface Project {
   liveUrl?: string;
   codeUrl?: string;
   image?: string;
+  video?: string;
 }
 
 export const projects: Project[] = [
   {
     name: "Verba-AI",
     description:
-      "Multi-tenant RAG platform with dual-threshold retrieval pipeline (0.45 relevance target, 0.41 bypass floor) reducing LLM token usage by 62%. Features custom PDF viewer with dynamic AI citation links and multi-model Gemini fallback chain.",
+      "Multi-tenant RAG platform with dual-threshold retrieval pipeline (0.45 relevance target, 0.41 bypass floor) reducing LLM token usage by 62% and Flexible document-scope toggle. Features custom PDF viewer with dynamic AI citation links and multi-model Gemini fallback chain.",
     tags: ["Next.js", "LangChain", "Pinecone", "Firebase", "TypeScript", "Gemini API"],
     codeUrl: "https://github.com/jaiswalabhishek377/second-brain",
     liveUrl: "https://second-brain-weld-eta.vercel.app/",
     image: "/projects/verba.png",
+    video: "/projects/verbaworkflow.mp4",
   },
   {
     name: "CodeSync",
