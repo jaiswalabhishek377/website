@@ -1,5 +1,5 @@
 export default function ResumeButton() {
-  const resumeUrl = "https://drive.google.com/file/d/1Wq4-iRQcBqtjjMObUJVuNdO7jeiA52NX/view?usp=drive_link";
+  const resumeUrl = "https://drive.google.com/file/d/1c5KFOxu6xUak83DsB-BeDsa4VGpYeIBb/view?usp=sharing";
 // https://drive.google.com/file/d/1Wq4-iRQcBqtjjMObUJVuNdO7jeiA52NX/view?usp=drive_link
   return (
     <section className="py-20 px-6">

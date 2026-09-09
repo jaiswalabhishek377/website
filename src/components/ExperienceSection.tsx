@@ -16,7 +16,7 @@ export function ExperienceSection() {
           {experiences.map((exp) => (
             <article
               key={`${exp.company}-${exp.role}`}
-              className="glass-card p-6"
+              className="interactive-card p-6"
             >
               {/* Header Row */}
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">

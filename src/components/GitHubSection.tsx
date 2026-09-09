@@ -79,8 +79,8 @@ export default function GitHubSection() {
           <p className="section-subtitle mt-1">Contributions and activity</p>
         </div>
 
-        {/* Glass Card */}
-        <div className="glass-card p-5 sm:p-6 mb-8">
+        {/* Interactive Card */}
+        <div className="interactive-card p-5 sm:p-6 mb-8">
           {/* Profile row with sharp Goku Avatar */}
           <div className="flex items-center justify-between border-b border-border pb-5 mb-5">
             <div className="flex items-center gap-3.5">
@@ -244,12 +244,26 @@ export default function GitHubSection() {
                           className="block group"
                         >
                           <div className="flex items-center gap-2 text-xs mb-1.5">
-                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#8957e5]/20 text-[#a371f7] border border-[#8957e5]/40 shrink-0">
+                            <span
+                              className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 ${
+                                pr.status === "Merged"
+                                  ? "bg-[#8957e5]/20 text-[#a371f7] border border-[#8957e5]/40"
+                                  : pr.status === "Commit"
+                                  ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/40"
+                                  : pr.status === "Open"
+                                  ? "bg-[#238636]/20 text-[#3fb950] border border-[#238636]/40"
+                                  : "bg-[#6e7681]/20 text-[#8b949e] border border-[#6e7681]/40"
+                              }`}
+                            >
                               <svg
                                 className="w-3 h-3 fill-current"
                                 viewBox="0 0 16 16"
                               >
-                                <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                                {pr.status === "Commit" ? (
+                                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm0 14.5a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13Z" />
+                                ) : (
+                                  <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                                )}
                               </svg>
                               {pr.status}
                             </span>

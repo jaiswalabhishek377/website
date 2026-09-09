@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import leetcodeSnapshot from "@/lib/leetcodeSnapshot.json";
 
 interface LeetCodeStats {
   contestRating?: number;
@@ -9,6 +10,8 @@ interface LeetCodeStats {
   mediumSolved?: number;
   hardSolved?: number;
   totalSubmissions?: number;
+  streak?: number;
+  totalActiveDays?: number;
   submissionCalendar?: Record<string, number>;
 }
 
@@ -181,8 +184,17 @@ function generateCalendar(
 }
 
 export default function LeetCodeCard() {
-  const [stats, setStats] = useState<LeetCodeStats | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [stats, setStats] = useState<LeetCodeStats>({
+    contestRating: 1761,
+    totalSolved: 698,
+    easySolved: 163,
+    mediumSolved: 459,
+    hardSolved: 76,
+    streak: 123,
+    totalActiveDays: 335,
+    submissionCalendar: leetcodeSnapshot as Record<string, number>,
+  });
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -199,17 +211,6 @@ export default function LeetCodeCard() {
         }
       } catch (err) {
         console.error("LeetCode stats fetch error:", err);
-        if (isMounted) {
-          setStats({
-            contestRating: 1761,
-            totalSolved: 694,
-            easySolved: 163,
-            mediumSolved: 459,
-            hardSolved: 72,
-            totalSubmissions: 2494,
-            submissionCalendar: {},
-          });
-        }
       } finally {
         if (isMounted) {
           setLoading(false);
@@ -256,7 +257,7 @@ export default function LeetCodeCard() {
   return (
     <section className="section-wrap !pt-0">
       <div className="mx-auto max-w-3xl">
-        <div className="glass-card p-5">
+        <div className="interactive-card p-5">
           {/* Header row */}
           <div className="flex items-center justify-between border-b border-border pb-4 mb-4">
             <div>

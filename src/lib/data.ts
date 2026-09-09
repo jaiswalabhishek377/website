@@ -58,11 +58,11 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     role: "Open Source Contributor",
-    company: "naolabs / getnao (YC-backed)",
-    period: "2026",
+    company: "nao Labs (YC-X25)",
+    period: "July 2026 – Present",
     description:
-      "Contributed to getnao/nao, an open-source AI analytics agent workspace. Merged PR #1488 (resolving issue #1444) — overhauled multi-source token usage analytics by fixing color token collisions in styles.css and implementing distinct HSL color-mapping across user, assistant, tool, and system agent message streams.",
-    tags: ["TypeScript", "React", "Tailwind CSS", "Data Viz", "Open Source", "YC-backed"],
+      "Engineered Drizzle ORM time-window aggregations across PostgreSQL & SQLite (PR #1542), built Markdown & BI story export pipelines with Vitest coverage (PR #1535), and standardized React 19 theme tokens across MCP chat integrations (Merged PR #1488).",
+    tags: ["TypeScript", "React 19", "Drizzle ORM", "PostgreSQL", "Vitest"],
     logo: "/nao.png",
     link: "https://github.com/getnao/nao/pull/1488",
     repoLink: "https://github.com/getnao/nao",
@@ -108,13 +108,13 @@ export const projects: Project[] = [
     image: "/projects/codesync.png",
   },
   {
-    name: "Relish",
+    name: "Nexus",
     description:
-      "Full-stack food delivery platform with MERN stack, Stripe payment pipeline, JWT authentication, and dedicated Admin dashboard with real-time dynamic inventory & menu updates.",
-    tags: ["React 19", "Node.js", "Express", "MongoDB", "Stripe", "JWT"],
-    codeUrl: "https://github.com/jaiswalabhishek377/Relish",
-    liveUrl: "https://relish-nu.vercel.app/",
-    image: "/projects/relish.png",
+      "Full-stack e-commerce platform storefront and admin dashboard integrating Stripe payment pipeline, dual-token JWT authentication with queue-locked Axios token renewal and real-time 7-day revenue analytics.",
+    tags: ["React 19", "Node.js", "Express", "MongoDB", "Stripe API", "Zustand", "JWT"],
+    codeUrl: "https://github.com/jaiswalabhishek377/nexus",
+    liveUrl: "nexus-46hp.onrender.com/",
+    image: "/projects/nexus.png",
   },
 ];
 
@@ -153,7 +153,7 @@ export interface PullRequest {
   repoUrl: string;
   prUrl: string;
   date: string;
-  status: "Merged" | "Open" | "Closed";
+  status: "Merged" | "Open" | "Closed" | "Commit";
 }
 
 export interface OSSContribution {
@@ -169,16 +169,34 @@ export const ossContributions: OSSContribution[] = [
     org: "getnao",
     orgUrl: "https://github.com/getnao/nao",
     logo: "/nao.png",
-    count: 1,
+    count: 3,
     prs: [
       {
-        title: "fix(usage): use distinct colors for different message sources- #1488",
+        title: "fix(usage): use distinct colors for different message sources - #1488",
         number: 1488,
         repo: "nao",
         repoUrl: "https://github.com/getnao/nao",
         prUrl: "https://github.com/getnao/nao/pull/1488",
         date: "27 August · nao",
         status: "Merged",
+      },
+      {
+        title: "feat(analytics): time-window aggregations in Drizzle ORM - #1542",
+        number: 1542,
+        repo: "nao",
+        repoUrl: "https://github.com/getnao/nao",
+        prUrl: "https://github.com/getnao/nao/pull/1542",
+        date: "September · nao",
+        status: "Commit",
+      },
+      {
+        title: "feat(export): Markdown & BI story export pipeline with Vitest - #1535",
+        number: 1535,
+        repo: "nao",
+        repoUrl: "https://github.com/getnao/nao",
+        prUrl: "https://github.com/getnao/nao/pull/1535",
+        date: "September · nao",
+        status: "Commit",
       },
     ],
   },

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import leetcodeSnapshot from "@/lib/leetcodeSnapshot.json";
 
 const LEETCODE_USERNAME = "ic5DzrEttY";
 
@@ -65,14 +66,20 @@ export async function GET() {
     );
 
     const userCalendar = data?.data?.matchedUser?.userCalendar || {};
-    let submissionCalendar: Record<string, number> = {};
+    let liveSubmissionCalendar: Record<string, number> = {};
     try {
       if (userCalendar.submissionCalendar) {
-        submissionCalendar = JSON.parse(userCalendar.submissionCalendar);
+        liveSubmissionCalendar = JSON.parse(userCalendar.submissionCalendar);
       }
     } catch {
-      submissionCalendar = {};
+      liveSubmissionCalendar = {};
     }
+
+    // Merge persistent snapshot (starting Sep 1, 2025) with live API
+    const submissionCalendar: Record<string, number> = {
+      ...(leetcodeSnapshot as Record<string, number>),
+      ...liveSubmissionCalendar,
+    };
 
     const stats: LeetCodeStats = {
       contestRating,
@@ -106,17 +113,17 @@ export async function GET() {
   } catch (error) {
     console.error("LeetCode API error:", error);
 
-    // Fallback with live known stats
+    // Fallback with live known stats and snapshot
     return NextResponse.json(
       {
         contestRating: 1761,
-        totalSolved: 694,
+        totalSolved: 698,
         easySolved: 163,
         mediumSolved: 459,
-        hardSolved: 72,
+        hardSolved: 76,
         streak: 123,
-        totalActiveDays: 329,
-        submissionCalendar: {},
+        totalActiveDays: 335,
+        submissionCalendar: leetcodeSnapshot as Record<string, number>,
       } as LeetCodeStats,
       { status: 200 }
     );
